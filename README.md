@@ -16,48 +16,6 @@ Permite calcular y visualizar el grado de coincidencia entre un inmueble y disti
 
 ## 🧩 **Arquitectura**
 
-### 🗂 Estructura del proyecto
-
-crm-inmobiliario/
-│
-├── index.php # Punto de entrada principal
-│
-├── src/
-│
-├── assets/
-│   ├── css/
-│   │   └── style.css #Estilos para la vista HTML de la ficha de inmueble
-│   └── js/
-│       └── script.js #Javascript para la vista HTML de la ficha de inmueble
-├── Config/
-│ │ └── Database.php # Configuracion BBDD
-│ 
-│ ├── Controllers/
-│ │ └── PropertyController.php # Controlador principal (coordina modelo y vista)
-│ │
-│ ├── Models/
-│ │ ├── Property.php # Modelo de inmueble
-│ │ ├── Client.php # Modelo de cliente
-│ │ └── AffinityCalculator.php # Calculadora de afinidad (usa Strategy)
-│ │ 
-│ ├── Repositories/
-│ │ ├── PropertyRepository.php # Interfaz de repositorio
-│ │ ├── ClientRepository.php # Interfaz del cliente
-│ │ ├── PropertyRepository.php # Interfaz de la propiedad
-│ │ ├── MySQLPropertyRepository.php # PDO de la propiedad
-│ │ └── MySQLClientRepository.php # PDO del cliente
-│ │
-│ ├── Strategies/
-│ │ ├── AffinityStrategy.php # Interfaz del patrón Strategy
-│ │  └── BasicAffinityStrategy.php # Estrategia concreta de afinidad básica
-│
-├── views/
-│    └── property_view.php # Vista HTML de la ficha de inmueble
-
-
-
----
-
 ## 🧠 **Patrones de diseño utilizados**
 
 ### 1️⃣ **MVC (Modelo–Vista–Controlador)**
@@ -96,9 +54,15 @@ Favorecer la extensibilidad y la prueba unitaria.
 
 PHP ≥ 8.1 (recomendado: PHP 8.2 Non Thread Safe)
 
-No necesita base de datos (usa repositorios en memoria)
+Base de datos MySQL (recomendado: MySQL Ver 8.0.43-0ubuntu0.22.04.2 for Linux on x86_64 ((Ubuntu)))
 
 Navegador web moderno
+
+🚀 Ejecución servidor Ubuntu
+
+URL: http://135.236.152.41/index.php
+    - Inmueble ejemplo 1: http://135.236.152.41/index.php?id=1
+    - Inmueble ejemplo 2: http://135.236.152.41/index.php?id=2
 
 🚀 Ejecución local
 
@@ -115,7 +79,16 @@ php -S localhost:8000
 
 Flujo
 
-Abrir en el navegador:
+Abrir en el servidor público:
+
+| Página              | Función                         | URL                                                                                |
+| ------------------- | ------------------------------- | ---------------------------------------------------------------------------------- |
+| `index.php`         | Muestra afinidad del inmueble 1 | [http://135.236.152.41/index.php]
+| `property.php?id=1` | Muestra afinidad del inmueble 1 | [http://135.236.152.41/index.php?id=1]
+| `property.php?id=2` | Muestra afinidad del inmueble 2 | [http://135.236.152.41/index.php?id=2]
+
+
+Abrir en el navegador local:
 
 | Página              | Función                         | URL                                                                                |
 | ------------------- | ------------------------------- | ---------------------------------------------------------------------------------- |
