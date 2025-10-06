@@ -114,13 +114,6 @@
             const el = document.getElementById(id);
             el.style.display = el.style.display === 'none' ? 'block' : 'none';
         }
-        /*$(document).ready(function() {
-            $('#detailAffinity').on('click', function() {
-                const id = $(this).attr('id');
-                toggleDetails(id);
-            });
-        });*/
-
     </script>
 </head>
 <body>

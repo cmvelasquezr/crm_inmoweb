@@ -30,9 +30,9 @@ class MySQLPropertyRepository implements PropertyRepository {
             $row['zone'],
             $row['price'],
             $row['rooms'],
-            (int)$row['area'],
+            (bool)$row['garage'],
             (bool)$row['terrace'],
-            (bool)$row['garage']
+            (int)$row['area'],
         ) : null;
     }
 
@@ -46,9 +46,9 @@ class MySQLPropertyRepository implements PropertyRepository {
                 $row['zone'],
                 $row['price'],
                 $row['rooms'],
-                (int)$row['area'],
+                (bool)$row['garage'],
                 (bool)$row['terrace'],
-                (bool)$row['garage']
+                (int)$row['area']
             );
         }
         return $properties;
@@ -66,8 +66,8 @@ class MySQLPropertyRepository implements PropertyRepository {
                 $row['max_price'],
                 $row['min_rooms'],
                 $row['max_rooms'],
-                (bool)$row['wants_terrace'],
-                (bool)$row['wants_garage']
+                (bool)$row['wants_garage'],
+                (bool)$row['wants_terrace']
             );
         }
         return $clients;

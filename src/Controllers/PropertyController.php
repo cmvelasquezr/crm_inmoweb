@@ -23,7 +23,7 @@ class PropertyController {
             return;
         }
 
-        $clients = $this->clientRepo->findAll();
+        $clients = $this->clientRepo->getClients();
         $matches = [];
 
         foreach ($clients as $client) {

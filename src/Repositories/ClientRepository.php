@@ -5,5 +5,5 @@ use Src\Models\Client;
 
 interface ClientRepository {
     /** @return Client[] */
-    public function findAll(): array;
+    public function getClients(): array;
 }

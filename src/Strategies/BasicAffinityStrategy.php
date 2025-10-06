@@ -9,8 +9,17 @@ class BasicAffinityStrategy implements AffinityStrategy {
     /**
      * Normaliza una puntuación entre 0 y 1
      */
-    private function clamp01($v) {
+    private function normalizePunctuation($v) {
         if ($v < 0) return 0;
+        if ($v > 1) return 1;
+        return $v;
+    }
+
+    /**
+     * Normaliza una puntuación Superficie
+     */
+    private function normalizeArea($v) {
+        if ($v < 1) return 0;
         if ($v > 1) return 1;
         return $v;
     }
@@ -31,7 +40,7 @@ class BasicAffinityStrategy implements AffinityStrategy {
             'area' => 5
         ];
 
-        // Zona: exact match en preferred_zones
+        // Zona: coincidencia con zona preferida
         $zone_match = in_array($property->zone, $client->preferredZones) ? 1.0 : 0.0;
         $details['zone'] = [
             'value' => $zone_match,
@@ -52,7 +61,7 @@ class BasicAffinityStrategy implements AffinityStrategy {
                 $diff = ($property->price - $client->budgetMax) / max(1, $client->budgetMax);
             }
             // mapear a score: si la diferencia es grande -> 0; si pequeña -> cercano a 1
-            $price_score = $this->clamp01(1.0 - $diff*2); // factor 2 para mayor sensibilidad
+            $price_score = $this->normalizePunctuation(1.0 - $diff*2); // factor 2 para mayor sensibilidad
             $price_note = "Fuera de presupuesto (diferencia relativa: " . round($diff, 2) . ")";
         }
         $details['price'] = [
@@ -72,7 +81,7 @@ class BasicAffinityStrategy implements AffinityStrategy {
                 abs($property->rooms - $client->roomsMin),
                 abs($property->rooms - $client->roomsMax)
             );
-            $rooms_score = $this->clamp01(1.0 - ($rooms_diff / max(1, $client->roomsMax)) );
+            $rooms_score = $this->normalizePunctuation(1.0 - ($rooms_diff / max(1, $client->roomsMax)) );
             $rooms_note = "Fuera de rango de habitaciones (diferencia: $rooms_diff)";
         }
         $details['rooms'] = [
@@ -115,12 +124,12 @@ class BasicAffinityStrategy implements AffinityStrategy {
             'note' => $terrace_note
         ];
 
-        // Superficie (area): damos una puntuación sencilla: si mayor que rooms*20 m2 se considera bueno
-        $ideal_area_score = $this->clamp01($property->areaM2 / max(1, ($property->rooms * 25))); // 25 m2 por habitación ideal
+        // Superficie (area): damos una puntuación sencilla: si mayor que rooms*25 m2 se considera bueno
+        $ideal_area_score = $property->areaM2 / max(1, ($property->rooms * 25)); // 25 m2 por habitación ideal
+        $ideal_area_score_normalize = $this->normalizeArea($ideal_area_score);
         
-        $area_score = $this->clamp01($ideal_area_score);
         $details['area'] = [
-            'value' => $area_score,
+            'value' => $ideal_area_score_normalize,
             'weight' => $weights['area'],
             'note' => "Ratio área/habitación: " . round($ideal_area_score, 2)
         ];
