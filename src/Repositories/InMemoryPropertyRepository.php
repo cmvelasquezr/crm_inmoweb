@@ -1,5 +1,5 @@
 <?php
-namespace Src\Repositories;
+/*namespace Src\Repositories;
 
 use Src\Models\Property;
 
@@ -24,3 +24,4 @@ class InMemoryPropertyRepository implements PropertyRepository {
         return $this->properties;
     }
 }
+*/

@@ -114,6 +114,13 @@
             const el = document.getElementById(id);
             el.style.display = el.style.display === 'none' ? 'block' : 'none';
         }
+        /*$(document).ready(function() {
+            $('#detailAffinity').on('click', function() {
+                const id = $(this).attr('id');
+                toggleDetails(id);
+            });
+        });*/
+
     </script>
 </head>
 <body>
@@ -150,7 +157,7 @@
 
             <div class="affinity-bar"><div style="width: <?= $score ?>%;"></div></div>
 
-            <div class="toggle" onclick="toggleDetails('<?= $detailsId ?>')">▼ Ver desglose</div>
+            <div class="toggle" id="detailAffinity" onclick="toggleDetails('<?= $detailsId ?>')">▼ Ver desglose</div>
 
             <div class="details" id="<?= $detailsId ?>">
                 <div class="details-item <?= $details['zone'] ? 'ok' : 'fail' ?>">
@@ -159,24 +166,24 @@
                 </div>
 
                 <div class="details-item <?= $details['price'] ? 'ok' : 'fail' ?>">
-                    <strong>Price — <?= $details['price'] ? '100%' : '0%' ?></strong>
+                    <strong>Precio — <?= $details['price'] ? '100%' : '0%' ?></strong>
                     — <?= $details['price'] ? 'Dentro del presupuesto' : 'Fuera del presupuesto' ?>
                     <br><span class="small">Precio inmueble: <?= number_format($property->price, 0, ',', '.') ?> €, 
                     rango cliente: <?= number_format($client->budgetMin, 0, ',', '.') ?>-<?= number_format($client->budgetMax, 0, ',', '.') ?> €</span>
                 </div>
 
                 <div class="details-item <?= $details['rooms'] ? 'ok' : 'fail' ?>">
-                    <strong>Rooms — <?= $details['rooms'] ? '100%' : '0%' ?></strong>
+                    <strong>Habitaciones — <?= $details['rooms'] ? '100%' : '0%' ?></strong>
                     — Número de habitaciones <?= $details['rooms'] ? 'dentro del rango' : 'fuera del rango' ?>
                 </div>
 
                 <div class="details-item <?= $details['garage'] ? 'ok' : 'fail' ?>">
-                    <strong>Garage — <?= $details['garage'] ? '100%' : '0%' ?></strong>
+                    <strong>Garaje — <?= $details['garage'] ? '100%' : '0%' ?></strong>
                     — <?= $details['garage'] ? 'Cumple requisito de garaje' : 'No cumple requisito de garaje' ?>
                 </div>
 
                 <div class="details-item <?= $details['terrace'] ? 'ok' : 'fail' ?>">
-                    <strong>Terrace — <?= $details['terrace'] ? '100%' : '0%' ?></strong>
+                    <strong>Terraza — <?= $details['terrace'] ? '100%' : '0%' ?></strong>
                     — <?= $details['terrace'] ? 'Tiene terraza' : 'No tiene terraza' ?>
                 </div>
             </div>

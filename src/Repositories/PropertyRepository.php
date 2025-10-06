@@ -4,7 +4,8 @@ namespace Src\Repositories;
 use Src\Models\Property;
 
 interface PropertyRepository {
-    public function findById(int $id): ?Property;
+    public function getById(int $id): ?Property;
     /** @return Property[] */
-    public function findAll(): array;
+    public function getAll(): array;
+    public function getClients(): array;
 }

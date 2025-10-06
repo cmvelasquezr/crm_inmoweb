@@ -17,7 +17,7 @@ class PropertyController {
     }
 
     public function showProperty(int $id): void {
-        $property = $this->propertyRepo->findById($id);
+        $property = $this->propertyRepo->getById($id);
         if (!$property) {
             echo "<h2>Inmueble no encontrado (id={$id})</h2>";
             return;

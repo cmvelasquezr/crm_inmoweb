@@ -13,6 +13,7 @@ require_once __DIR__ . '/src/Repositories/PropertyRepository.php';
 require_once __DIR__ . '/src/Repositories/ClientRepository.php';
 require_once __DIR__ . '/src/Repositories/InMemoryPropertyRepository.php';
 require_once __DIR__ . '/src/Repositories/InMemoryClientRepository.php';
+require_once __DIR__ . '/src/Repositories/MySQLPropertyRepository.php';
 
 // --- CONTROLLERS ---
 require_once __DIR__ . '/src/Controllers/PropertyController.php';
@@ -22,9 +23,11 @@ use Src\Repositories\InMemoryPropertyRepository;
 use Src\Repositories\InMemoryClientRepository;
 use Src\Models\AffinityCalculator;
 use Src\Strategies\BasicAffinityStrategy;
+use Src\Repositories\MySQLPropertyRepository;
 
 // Inyección manual de dependencias
-$propertyRepo = new InMemoryPropertyRepository();
+//$propertyRepo = new InMemoryPropertyRepository();
+$propertyRepo = new MySQLPropertyRepository();
 $clientRepo = new InMemoryClientRepository();
 $strategy = new BasicAffinityStrategy();
 $calculator = new AffinityCalculator($strategy);
