@@ -30,7 +30,7 @@ CREATE TABLE clients (
 INSERT INTO properties (title, zone, price, rooms, area, terrace, garage)
 VALUES
 ('Piso luminoso con terraza en Chamberí', 'Chamberí', 420000, 3, 95, TRUE, TRUE),
-('Ático moderno en Salamanca', 'Salamanca', 650000, 2, 80, TRUE, TRUE);
+('Ático moderno en Salamanca', 'Salamanca', 650000, 2, 45, TRUE, TRUE);
 
 INSERT INTO clients (name, preferred_zones, min_price, max_price, min_rooms, max_rooms, wants_terrace, wants_garage)
 VALUES
