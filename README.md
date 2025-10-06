@@ -69,7 +69,7 @@ El cálculo de afinidad se encapsula en una interfaz común:
 
 ```php
 interface AffinityStrategy {
-    public function calculate(Property $p, Client $c): array;
+    public function compute_affinity(Property $p, Client $c): array;
 }
 
 Esto permite:

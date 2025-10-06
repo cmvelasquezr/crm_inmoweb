@@ -157,36 +157,25 @@
 
             <div class="affinity-bar"><div style="width: <?= $score ?>%;"></div></div>
 
-            <div class="toggle" id="detailAffinity" onclick="toggleDetails('<?= $detailsId ?>')">▼ Ver desglose</div>
-
-            <div class="details" id="<?= $detailsId ?>">
-                <div class="details-item <?= $details['zone'] ? 'ok' : 'fail' ?>">
-                    <strong>Zone — <?= $details['zone'] ? '100%' : '0%' ?></strong>
-                    — <?= $details['zone'] ? 'Zona preferida' : 'Zona fuera de preferencias' ?>
+            <details>
+                <summary style="cursor:pointer; margin-top:8px; color: darkblue;">Ver desglose</summary>
+                <div style="margin-top:8px;">
+                    <?php foreach ($m['details'] as $k => $d):
+                        $pct = round($d['value'] * 100, 0);
+                        ?>
+                        <div class="details-item <?= $d['value'] >= 0.5 ? 'ok' : 'fail' ?>">
+                            <div style="margin-bottom:6px;">
+                                <strong><?=ucfirst($k)?></strong> — <?=$pct?> % — <span class="detail"><?=htmlspecialchars($d['note'])?></span>
+                                <?php if (isset($d['prop_price'])): ?>
+                                    <div class="small">Precio inmueble: <?=number_format($d['prop_price'],0,',','.')?> €, rango cliente: <?=number_format($d['client_range'][0],0,',','.')?>-<?=number_format($d['client_range'][1],0,',','.')?> €</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
+            </details>
 
-                <div class="details-item <?= $details['price'] ? 'ok' : 'fail' ?>">
-                    <strong>Precio — <?= $details['price'] ? '100%' : '0%' ?></strong>
-                    — <?= $details['price'] ? 'Dentro del presupuesto' : 'Fuera del presupuesto' ?>
-                    <br><span class="small">Precio inmueble: <?= number_format($property->price, 0, ',', '.') ?> €, 
-                    rango cliente: <?= number_format($client->budgetMin, 0, ',', '.') ?>-<?= number_format($client->budgetMax, 0, ',', '.') ?> €</span>
-                </div>
-
-                <div class="details-item <?= $details['rooms'] ? 'ok' : 'fail' ?>">
-                    <strong>Habitaciones — <?= $details['rooms'] ? '100%' : '0%' ?></strong>
-                    — Número de habitaciones <?= $details['rooms'] ? 'dentro del rango' : 'fuera del rango' ?>
-                </div>
-
-                <div class="details-item <?= $details['garage'] ? 'ok' : 'fail' ?>">
-                    <strong>Garaje — <?= $details['garage'] ? '100%' : '0%' ?></strong>
-                    — <?= $details['garage'] ? 'Cumple requisito de garaje' : 'No cumple requisito de garaje' ?>
-                </div>
-
-                <div class="details-item <?= $details['terrace'] ? 'ok' : 'fail' ?>">
-                    <strong>Terraza — <?= $details['terrace'] ? '100%' : '0%' ?></strong>
-                    — <?= $details['terrace'] ? 'Tiene terraza' : 'No tiene terraza' ?>
-                </div>
-            </div>
+  
         </div>
     <?php endforeach; ?>
 </body>

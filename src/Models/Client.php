@@ -11,6 +11,7 @@ class Client {
     public $roomsMax;
     public $needsGarage;
     public $wantsTerrace;
+    
 
     public function __construct($id, $name, $zones, $budgetMin, $budgetMax, $roomsMin, $roomsMax, $needsGarage, $wantsTerrace) {
         $this->id = $id;
