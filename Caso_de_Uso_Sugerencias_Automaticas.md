@@ -10,7 +10,7 @@ Sugerencias automáticas para el agente inmobiliario.
 1.0
 
 **Autor:**  
-Equipo de desarrollo CRM Inmoweb
+Claudia Maritza Velásquez R.
 
 **Fecha:**  
 Octubre 2025
@@ -98,7 +98,7 @@ Esto permite que el agente identifique rápidamente a qué clientes podría ofre
   Resultado → **Afinidad total = $score / 100 × 100%**
 
 - **Tecnologías:**  
-  - PHP 8.4 (NTS)  
+  - PHP 8.2 (NTS)  
   - HTML5 + CSS3  
   - XAMPP / Apache  
   - MySQL (o simulación en memoria)

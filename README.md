@@ -82,7 +82,7 @@ Favorecer la extensibilidad y la prueba unitaria.
 
 ⚙️ Requisitos
 
-PHP ≥ 8.1 (recomendado: PHP 8.4 Non Thread Safe)
+PHP ≥ 8.1 (recomendado: PHP 8.2 Non Thread Safe)
 
 No necesita base de datos (usa repositorios en memoria)
 
