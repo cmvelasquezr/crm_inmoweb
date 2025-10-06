@@ -11,6 +11,6 @@ class AffinityCalculator {
     }
 
     public function calculate(Property $property, Client $client): array {
-        return $this->strategy->calculate($property, $client);
+        return $this->strategy->compute_affinity($property, $client);
     }
 }

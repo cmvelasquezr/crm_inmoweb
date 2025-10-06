@@ -5,5 +5,5 @@ use Src\Models\Property;
 use Src\Models\Client;
 
 interface AffinityStrategy {
-    public function calculate(Property $property, Client $client): array;
+    public function compute_affinity(Property $property, Client $client): array;
 }
