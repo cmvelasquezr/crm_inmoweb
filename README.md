@@ -23,6 +23,10 @@ crm-inmobiliario/
 ├── index.php # Punto de entrada principal
 │
 ├── src/
+│
+├── Config/
+│ │ └── Database.php # Configuracion BBDD
+│ 
 │ ├── Controllers/
 │ │ └── PropertyController.php # Controlador principal (coordina modelo y vista)
 │ │

@@ -11,7 +11,6 @@ require_once __DIR__ . '/src/Strategies/BasicAffinityStrategy.php';
 // --- REPOSITORIES ---
 require_once __DIR__ . '/src/Repositories/PropertyRepository.php';
 require_once __DIR__ . '/src/Repositories/ClientRepository.php';
-require_once __DIR__ . '/src/Repositories/InMemoryPropertyRepository.php';
 require_once __DIR__ . '/src/Repositories/InMemoryClientRepository.php';
 require_once __DIR__ . '/src/Repositories/MySQLPropertyRepository.php';
 
