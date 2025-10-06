@@ -24,6 +24,11 @@ crm-inmobiliario/
 │
 ├── src/
 │
+├── assets/
+│   ├── css/
+│   │   └── style.css #Estilos para la vista HTML de la ficha de inmueble
+│   └── js/
+│       └── script.js #Javascript para la vista HTML de la ficha de inmueble
 ├── Config/
 │ │ └── Database.php # Configuracion BBDD
 │ 
@@ -34,17 +39,20 @@ crm-inmobiliario/
 │ │ ├── Property.php # Modelo de inmueble
 │ │ ├── Client.php # Modelo de cliente
 │ │ └── AffinityCalculator.php # Calculadora de afinidad (usa Strategy)
-│ │
+│ │ 
 │ ├── Repositories/
 │ │ ├── PropertyRepository.php # Interfaz de repositorio
-│ │ └── InMemoryPropertyRepository.php # Implementación en memoria
+│ │ ├── ClientRepository.php # Interfaz del cliente
+│ │ ├── PropertyRepository.php # Interfaz de la propiedad
+│ │ ├── MySQLPropertyRepository.php # PDO de la propiedad
+│ │ └── MySQLClientRepository.php # PDO del cliente
 │ │
-│ └── Strategies/
-│ ├── AffinityStrategy.php # Interfaz del patrón Strategy
-│ └── BasicAffinityStrategy.php # Estrategia concreta de afinidad básica
+│ ├── Strategies/
+│ │ ├── AffinityStrategy.php # Interfaz del patrón Strategy
+│ │  └── BasicAffinityStrategy.php # Estrategia concreta de afinidad básica
 │
-└── views/
-└── property_view.php # Vista HTML de la ficha de inmueble
+├── views/
+│    └── property_view.php # Vista HTML de la ficha de inmueble
 
 
 
