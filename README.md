@@ -1,3 +1,10 @@
+🚀 Ejecución servidor Ubuntu
+
+URL: http://135.236.152.41/index.php
+    - Inmueble ejemplo 1: http://135.236.152.41/index.php?id=1
+    - Inmueble ejemplo 2: http://135.236.152.41/index.php?id=2
+
+
 # 🧭 CRM Inmobiliario – Caso de Uso Simulado para Presentar a Inmoweb MVC + Strategy (PHP)
 
 Este proyecto es una **simulación simplificada de un caso de Uso para CRM inmobiliario**, centrada en la **gestión de afinidad entre inmuebles y clientes**.  
@@ -57,12 +64,6 @@ PHP ≥ 8.1 (recomendado: PHP 8.2 Non Thread Safe)
 Base de datos MySQL (recomendado: MySQL Ver 8.0.43-0ubuntu0.22.04.2 for Linux on x86_64 ((Ubuntu)))
 
 Navegador web moderno
-
-🚀 Ejecución servidor Ubuntu
-
-URL: http://135.236.152.41/index.php
-    - Inmueble ejemplo 1: http://135.236.152.41/index.php?id=1
-    - Inmueble ejemplo 2: http://135.236.152.41/index.php?id=2
 
 🚀 Ejecución local
 
