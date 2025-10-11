@@ -3,6 +3,7 @@ namespace Src\Config;
 
 use PDO;
 use PDOException;
+use Exception;
 
 class Database {
     private $host = 'localhost';
@@ -21,7 +22,8 @@ class Database {
             );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Error de conexión: " . $e->getMessage();
+            $message = "Error de conexión: " . $e->getMessage();
+            throw new Exception($message, 500, $e);
         }
         return $this->conn;
     }

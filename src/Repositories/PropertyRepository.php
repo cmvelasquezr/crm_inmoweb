@@ -7,5 +7,4 @@ interface PropertyRepository {
     public function getById(int $id): ?Property;
     /** @return Property[] */
     public function getAll(): array;
-    public function getClients(): array;
 }
