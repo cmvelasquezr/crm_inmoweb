@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title><?= htmlspecialchars($property->title) ?></title>
-
-    <!-- Enlaces a CSS y JS externos -->
+    <!-- Enlaces a CSS - Favicon y JS externos -->
     <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
     <script src="src/assets/js/script.js" defer></script>
 </head>
 

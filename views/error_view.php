@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Error en Aplicación</title>
     <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

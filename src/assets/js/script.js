@@ -15,7 +15,7 @@ const rows = document.querySelectorAll('.property-row');
         row.addEventListener('click', () => {
             const id = row.dataset.id;
 
-            fetch('../public/ajax/property_affinity.php?id='+id)
+            fetch('../public/Ajax/property_affinity.php?id='+id)
                 /*.then(response => response.text())
                 .then(text => console.log(text));*/
                 .then(response => response.text())

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Listado de Propiedades</title>
-    <!-- Enlaces a CSS y JS externos -->
+    <!-- Enlaces a CSS - Favicon y JS externos -->
     <link rel="stylesheet" href="src/assets/css/style.css">
+    <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
     <script src="src/assets/js/script.js" defer></script>
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
