@@ -164,3 +164,7 @@ tr:hover {
 .btn-afinidad:hover {
     background-color: #005fa3;
 }
+
+div#tablaPropiedades_wrapper {
+    padding: 5%;
+}
