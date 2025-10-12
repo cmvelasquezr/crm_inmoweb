@@ -6,20 +6,26 @@
     <!-- Enlaces a CSS y JS externos -->
     <link rel="stylesheet" href="src/assets/css/style.css">
     <script src="src/assets/js/script.js" defer></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <!-- jQuery (requerido por DataTables) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-    <table>
+    <table id="tablaPropiedades">
         <caption>Inmuebles</caption>
         <thead>
             <tr>
                 <th>Título</th>
-                <th>Zona</th>
-                <th>Precio</th>
-                <th>Habitaciones</th>
-                <th>Garaje</th>
-                <th>Terraza</th>
-                <th>Área (m²)</th>
-                <th>Afinidad</th>
+                <th class="celda-centrada">Zona</th>
+                <th class="celda-centrada">Precio</th>
+                <th class="celda-centrada">Habitaciones</th>
+                <th class="celda-centrada">Garaje</th>
+                <th class="celda-centrada">Terraza</th>
+                <th class="celda-centrada">Área (m²)</th>
+                <th class="celda-centrada">Afinidad</th>
             </tr>
         </thead>
         <tbody>

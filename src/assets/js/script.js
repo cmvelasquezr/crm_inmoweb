@@ -31,4 +31,20 @@ const rows = document.querySelectorAll('.property-row');
     });
 
     closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; 
+
+    };
+
+    $(document).ready(function() {
+        $('#tablaPropiedades').DataTable({
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json'
+            },
+            pageLength: 10,
+            lengthMenu: [5, 10, 25, 50],
+            columnDefs: [
+                { orderable: false, targets: -1 } // desactiva orden en columna "Afinidad"
+            ]
+        });
+    });
+
