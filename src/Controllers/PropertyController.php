@@ -1,6 +1,7 @@
 <?php
 namespace Src\Controllers;
 
+use Exception;
 use Src\Repositories\PropertyRepository;
 use Src\Repositories\ClientRepository;
 use Src\Models\AffinityCalculator;
@@ -16,10 +17,22 @@ class PropertyController {
         $this->calculator = $calculator;
     }
 
+    public function listProperties(): void {
+        try {
+            $properties = $this->propertyRepo->getAll();
+            $viewData = ['properties' => $properties];
+            extract($viewData);
+            include __DIR__ . '/../../views/property_list.php';
+        } catch (Exception $e){
+            $message = 'No se pudieron cargar las propiedades.';
+            throw new Exception($message);
+        }
+    }
+
     public function showProperty(int $id): void {
         $property = $this->propertyRepo->getById($id);
         if (!$property) {
-            echo "<h2>Inmueble no encontrado (id={$id})</h2>";
+            echo "<h2>Inmueble no encontrado (id={" . htmlspecialchars($id) . "})</h2>";
             return;
         }
 
@@ -35,10 +48,20 @@ class PropertyController {
             ];
         }
 
-
+        //🧹 Filtrar con array_filter antes de ordenar
+        //Esto elimina cualquier entrada que tenga un score no numérico antes de aplicar usort.
+        $matches = array_filter($matches, function ($item) {
+            return isset($item['score']) && is_numeric($item['score']);
+        });
         // Ordenar por mayor afinidad
         usort($matches, fn($a, $b) => $b['score'] <=> $a['score']);
 
+        //Se renderiza la vista property_view:
+        $viewData = ['property' => $property, 'matches' => $matches];
+        extract($viewData);
         include __DIR__ . '/../../views/property_view.php';
+        $html = ob_get_clean();
+        echo $html;
     }
+
 }
