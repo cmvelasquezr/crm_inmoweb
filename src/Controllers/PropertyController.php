@@ -1,6 +1,7 @@
 <?php
 namespace Src\Controllers;
 
+use Exception;
 use Src\Repositories\PropertyRepository;
 use Src\Repositories\ClientRepository;
 use Src\Models\AffinityCalculator;
@@ -14,6 +15,18 @@ class PropertyController {
         $this->propertyRepo = $propertyRepo;
         $this->clientRepo = $clientRepo;
         $this->calculator = $calculator;
+    }
+
+    public function listProperties(): void {
+        try {
+            $properties = $this->propertyRepo->getAll();
+            $viewData = ['properties' => $properties];
+            extract($viewData);
+            include __DIR__ . '/../../views/property_list.php';
+        } catch (Exception $e){
+            $message = 'No se pudieron cargar las propiedades.';
+            throw new Exception($message);
+        }
     }
 
     public function showProperty(int $id): void {
@@ -47,6 +60,8 @@ class PropertyController {
         $viewData = ['property' => $property, 'matches' => $matches];
         extract($viewData);
         include __DIR__ . '/../../views/property_view.php';
+        $html = ob_get_clean();
+        echo $html;
     }
 
 }

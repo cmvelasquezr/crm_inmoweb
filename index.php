@@ -83,5 +83,5 @@ $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
     'options' => ['default' => isset($_GET['id']) ? (int) $_GET['id'] : 1, 'min_range' => 1, 'max_range' => 3]
 ]);
 
-
-$controller->showProperty($id);
+$controller->listProperties();
+//$controller->showProperty($id);

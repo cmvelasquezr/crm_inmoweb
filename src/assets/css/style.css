@@ -10,7 +10,7 @@
 body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     margin: 2rem auto;
-    max-width: 900px;
+    max-width: 1200px;
     line-height: 1.5;
     color: #222;
 }
@@ -101,4 +101,77 @@ h2 {
 .info {
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+table {
+    width: 90%;
+    margin: 2em auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.75em;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+caption {
+    font-size: 2.0em;
+    margin-bottom: 1em;
+}
+tr:hover {
+    background-color: #eef;
+    cursor: pointer;
+}
+.celda-centrada {
+    text-align: center;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2em;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+.btn-afinidad {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-afinidad:hover {
+    background-color: #005fa3;
 }

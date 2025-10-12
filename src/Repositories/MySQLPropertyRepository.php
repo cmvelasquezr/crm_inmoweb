@@ -19,7 +19,8 @@ class MySQLPropertyRepository extends BaseRepository implements PropertyReposito
             $this->conn = $database->getConnection();
 
             if (!$this->conn) {
-                throw new Exception("No se pudo establecer la conexión con la base de datos.");
+                $message = "No se pudo establecer la conexión con la base de datos.";
+                throw new Exception($message);
             }
         } catch (Exception $e) {
             $message = "Error al inicializar MySQLPropertyRepository: " . $e->getMessage();
